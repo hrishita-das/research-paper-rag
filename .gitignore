@@ -1,34 +1,25 @@
 # Python
 __pycache__/
-*.py[cod]
-.pytest_cache/
+*.pyc
 
 # Virtual environments
 .venv/
 venv/
 env/
 
+# Data
+data/raw/
+data/processed/
+data/vector_store/
+
+# Model/cache files
+*.pt
+*.pth
+*.bin
+*.safetensors
+
 # Environment variables
 .env
 
-# VS Code
-.vscode/
-
 # Logs
 *.log
-
-# Model files
-*.pt
-*.pth
-*.ckpt
-*.safetensors
-
-# Vector indexes
-*.faiss
-*.index
-
-# Research papers
-data/raw/*.pdf
-
-# Generated processed data
-data/processed/
