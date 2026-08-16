@@ -17,24 +17,48 @@ class HybridRetriever:
     def search(
         self,
         query,
-        top_k=5,
+        top_k=20,
         candidate_k=20,
     ):
+        """
+        Retrieve candidate chunks using:
+        1. Dense FAISS retrieval
+        2. Sparse BM25 retrieval
+        3. Reciprocal Rank Fusion
+
+        top_k:
+            Number of final hybrid candidates returned.
+
+        candidate_k:
+            Number of candidates retrieved from each retriever.
+        """
+
+        # ----------------------------------------------------
         # Dense retrieval
-        query_embedding = self.embedding_model.encode_query(query)
+        # ----------------------------------------------------
+
+        query_embedding = self.embedding_model.encode_query(
+            query
+        )
 
         dense_results = self.vector_store.search(
             query_embedding,
             top_k=candidate_k,
         )
 
-        # Sparse retrieval
+        # ----------------------------------------------------
+        # Sparse BM25 retrieval
+        # ----------------------------------------------------
+
         sparse_results = self.bm25_retriever.search(
             query,
             top_k=candidate_k,
         )
 
+        # ----------------------------------------------------
         # Reciprocal Rank Fusion
+        # ----------------------------------------------------
+
         fused_scores = {}
         result_lookup = {}
 
@@ -65,6 +89,10 @@ class HybridRetriever:
             if chunk_id not in result_lookup:
                 result_lookup[chunk_id] = result
 
+        # ----------------------------------------------------
+        # Sort by hybrid score
+        # ----------------------------------------------------
+
         ranked_chunk_ids = sorted(
             fused_scores,
             key=fused_scores.get,
@@ -73,9 +101,15 @@ class HybridRetriever:
 
         results = []
 
-        for chunk_id in ranked_chunk_ids[:top_k]:
+        for rank, chunk_id in enumerate(
+            ranked_chunk_ids[:top_k],
+            start=1,
+        ):
             result = dict(result_lookup[chunk_id])
+
             result["hybrid_score"] = fused_scores[chunk_id]
+            result["hybrid_rank"] = rank
+
             results.append(result)
 
         return results
