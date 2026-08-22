@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "question": "What is DDPM?",
+    "category": "definition",
+    "expected_answer": "DDPM is a diffusion model consisting of a forward process that gradually adds noise to data and a learned reverse process that generates or reconstructs data.",
+    "answerable": true
+  },
+  {
+    "id": 2,
+    "question": "What is a diffusion model?",
+    "category": "definition",
+    "expected_answer": "A diffusion model is a generative model based on a forward process that adds noise and a reverse process that learns to remove the noise.",
+    "answerable": true
+  },
+  {
+    "id": 3,
+    "question": "What is DiT?",
+    "category": "definition",
+    "expected_answer": "DiT, or Diffusion Transformer, is a transformer-based architecture for diffusion models that operates on spatial representations of images.",
+    "answerable": true
+  },
+  {
+    "id": 4,
+    "question": "What is McCaD?",
+    "category": "definition",
+    "expected_answer": "McCaD is a diffusion-based methodology for synthesizing a missing MRI contrast from multiple available MR contrasts.",
+    "answerable": true
+  },
+  {
+    "id": 5,
+    "question": "What is latent diffusion?",
+    "category": "definition",
+    "expected_answer": "Latent diffusion performs the diffusion process in a learned lower-dimensional latent representation rather than directly in pixel space.",
+    "answerable": true
+  },
+
+  {
+    "id": 6,
+    "question": "How does the forward diffusion process work in DDPM?",
+    "category": "process",
+    "expected_answer": "The forward process gradually adds random Gaussian noise to the input image over a sequence of time steps according to a variance schedule.",
+    "answerable": true
+  },
+  {
+    "id": 7,
+    "question": "How does the reverse diffusion process work in DDPM?",
+    "category": "process",
+    "expected_answer": "The reverse process starts from noisy data and uses a learned model to progressively remove noise and recover the original data.",
+    "answerable": true
+  },
+  {
+    "id": 8,
+    "question": "How is Gaussian noise added during the forward diffusion process?",
+    "category": "process",
+    "expected_answer": "Gaussian noise is added at each time step according to the noise variance beta_t, producing progressively noisier samples.",
+    "answerable": true
+  },
+  {
+    "id": 9,
+    "question": "How does DiT process image representations?",
+    "category": "process",
+    "expected_answer": "DiT patchifies a spatial representation into a sequence of tokens and processes those tokens using transformer blocks.",
+    "answerable": true
+  },
+  {
+    "id": 10,
+    "question": "How does McCaD synthesize a missing MRI contrast?",
+    "category": "process",
+    "expected_answer": "McCaD uses a diffusion-based methodology to synthesize a missing MRI contrast from multiple available MR contrasts.",
+    "answerable": true
+  },
+
+  {
+    "id": 11,
+    "question": "What equation describes the forward diffusion process?",
+    "category": "equation",
+    "expected_answer": "The forward transition is q(x_t|x_{t-1}) = N(x_t; sqrt(1-beta_t)x_{t-1}, beta_t I).",
+    "answerable": true
+  },
+  {
+    "id": 12,
+    "question": "What is q(x_t|x_{t-1}) in DDPM?",
+    "category": "equation",
+    "expected_answer": "q(x_t|x_{t-1}) is a Gaussian distribution with mean sqrt(1-beta_t)x_{t-1} and covariance beta_t I.",
+    "answerable": true
+  },
+  {
+    "id": 13,
+    "question": "What does beta_t represent in the DDPM forward process?",
+    "category": "equation",
+    "expected_answer": "Beta_t represents the noise variance used at time step t in the forward diffusion process.",
+    "answerable": true
+  },
+
+  {
+    "id": 14,
+    "question": "What architecture does DiT use?",
+    "category": "architecture",
+    "expected_answer": "DiT is based on the Vision Transformer architecture and applies transformer blocks to representations used by diffusion models.",
+    "answerable": true
+  },
+  {
+    "id": 15,
+    "question": "What is the backbone architecture commonly used by diffusion models?",
+    "category": "architecture",
+    "expected_answer": "Convolutional U-Nets are described as the de-facto backbone architecture for many diffusion models.",
+    "answerable": true
+  },
+  {
+    "id": 16,
+    "question": "What is the role of patchification in DiT?",
+    "category": "architecture",
+    "expected_answer": "Patchification converts the spatial representation into a sequence of patches or tokens that can be processed by transformer blocks.",
+    "answerable": true
+  },
+  {
+    "id": 17,
+    "question": "What type of architecture does DiT aim to preserve?",
+    "category": "architecture",
+    "expected_answer": "DiT aims to remain faithful to the standard transformer architecture to retain its scaling properties.",
+    "answerable": true
+  },
+
+  {
+    "id": 18,
+    "question": "What is the difference between DDPM and McCaD?",
+    "category": "comparison",
+    "expected_answer": "DDPM describes a general diffusion framework with forward and reverse processes, whereas McCaD applies a diffusion-based methodology specifically to missing MRI contrast synthesis.",
+    "answerable": true
+  },
+  {
+    "id": 19,
+    "question": "How does DiT differ from conventional diffusion models?",
+    "category": "comparison",
+    "expected_answer": "Conventional diffusion models commonly use convolutional U-Nets, whereas DiT uses a transformer-based architecture for diffusion.",
+    "answerable": true
+  },
+  {
+    "id": 20,
+    "question": "How does latent diffusion differ from pixel-space diffusion?",
+    "category": "comparison",
+    "expected_answer": "Latent diffusion performs diffusion in a compressed latent representation, while pixel-space diffusion operates directly on image pixels.",
+    "answerable": true
+  },
+
+  {
+    "id": 21,
+    "question": "What is the main contribution of McCaD?",
+    "category": "contribution",
+    "expected_answer": "McCaD proposes a diffusion-based approach for synthesizing a missing MRI contrast from multiple MR contrasts.",
+    "answerable": true
+  },
+  {
+    "id": 22,
+    "question": "What is the main architectural contribution of DiT?",
+    "category": "contribution",
+    "expected_answer": "DiT introduces a transformer-based architecture for diffusion models, replacing the conventional convolutional U-Net backbone with a Vision Transformer-based design.",
+    "answerable": true
+  },
+
+  {
+    "id": 23,
+    "question": "Who invented the telephone?",
+    "category": "out_of_domain",
+    "expected_answer": null,
+    "answerable": false
+  },
+  {
+    "id": 24,
+    "question": "What is the capital of France?",
+    "category": "out_of_domain",
+    "expected_answer": null,
+    "answerable": false
+  },
+  {
+    "id": 25,
+    "question": "What is the boiling point of water?",
+    "category": "out_of_domain",
+    "expected_answer": null,
+    "answerable": false
+  }
+]

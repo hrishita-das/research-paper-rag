@@ -1,0 +1,12 @@
+{
+    "total_questions": 25,
+    "citation_validity": 1.0,
+    "answerable_success_rate": 1.0,
+    "ood_refusal_rate": 1.0,
+    "citation_valid_count": 22,
+    "citation_evaluated_count": 22,
+    "answerable_correct_count": 22,
+    "answerable_total": 22,
+    "ood_correct_count": 3,
+    "ood_total": 3
+}
